@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drelski Cuts · Solo Barber Omaha</title>
+    <title>JRK Cuts · Solo Barber Omaha · Concept Project</title>
+    <meta name="description" content="Concept project — a solo barber website demo built by J. Khor. Fictional barber brand JRK Cuts, Omaha.">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Inter for a clean, professional look -->
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -26,468 +23,233 @@
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: #b99b6b; border-radius: 12px; }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Concept banner */
+        .concept-banner {
+            background: #1e1c19;
+            border-bottom: 1px solid #3a3630;
+            color: #bcb2a2;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+            text-align: center;
+            padding: 0.6rem 1rem;
         }
+        .concept-banner i { color: #c9a86c; margin-right: 6px; }
+        .concept-banner a { color: #d4b483; text-decoration: none; border-bottom: 1px dashed #b99b6b; }
+        .concept-banner a:hover { color: #f0e6d8; }
 
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #2a2a2a;
-            flex-wrap: wrap;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 0; border-bottom: 1px solid #2a2a2a; flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px;
             background: linear-gradient(135deg, #d4b483, #b4915c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .logo i {
-            -webkit-text-fill-color: #b4915c;
-            margin-right: 6px;
-        }
+        .logo i { -webkit-text-fill-color: #b4915c; margin-right: 6px; }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            font-weight: 600;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; gap: 2rem; font-weight: 600; flex-wrap: wrap; }
         .nav-links a {
-            color: #cbc3b5;
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 0.3px;
-            transition: 0.2s;
-            padding: 0.4rem 0;
+            color: #cbc3b5; text-decoration: none; font-size: 1rem;
+            letter-spacing: 0.3px; transition: 0.2s; padding: 0.4rem 0;
             border-bottom: 2px solid transparent;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: #f0e6d8;
-            border-bottom-color: #b99b6b;
+            color: #f0e6d8; border-bottom-color: #b99b6b;
         }
 
-        .page {
-            display: none;
-            padding: 2.5rem 0 4rem;
-            animation: fadeUp 0.35s ease;
-        }
-        .page.active {
-            display: block;
-        }
+        .page { display: none; padding: 2.5rem 0 4rem; animation: fadeUp 0.35s ease; }
+        .page.active { display: block; }
 
         @keyframes fadeUp {
             0% { opacity: 0.4; transform: translateY(12px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2.5rem;
-            margin-top: 0.5rem;
-        }
-        .hero-content {
-            flex: 1 1 300px;
-        }
+        .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; margin-top: 0.5rem; }
+        .hero-content { flex: 1 1 300px; }
         .hero-content h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
+            font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px;
         }
-        .hero-content h1 span {
-            color: #c9a86c;
-        }
+        .hero-content h1 span { color: #c9a86c; }
         .hero-content p {
-            font-size: 1.1rem;
-            color: #b0a89b;
-            margin: 1.2rem 0 2rem;
-            max-width: 520px;
+            font-size: 1.1rem; color: #b0a89b; margin: 1.2rem 0 2rem; max-width: 520px;
         }
         .btn {
-            display: inline-block;
-            background: #c9a86c;
-            color: #0b0b0b;
-            font-weight: 700;
-            padding: 0.9rem 2.2rem;
-            border-radius: 60px;
-            text-decoration: none;
-            transition: 0.2s;
-            border: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            box-shadow: 0 8px 20px rgba(201, 168, 108, 0.2);
-            cursor: pointer;
+            display: inline-block; background: #c9a86c; color: #0b0b0b;
+            font-weight: 700; padding: 0.9rem 2.2rem; border-radius: 60px;
+            text-decoration: none; transition: 0.2s; border: none;
+            font-size: 0.95rem; letter-spacing: 0.3px;
+            box-shadow: 0 8px 20px rgba(201, 168, 108, 0.2); cursor: pointer;
         }
         .btn:hover {
-            background: #dbb87a;
-            transform: scale(1.02);
+            background: #dbb87a; transform: scale(1.02);
             box-shadow: 0 12px 28px rgba(201, 168, 108, 0.35);
         }
         .hero-image {
-            flex: 1 1 280px;
-            background: #1f1d1a;
-            border-radius: 32px;
-            padding: 0.8rem;
-            border: 1px solid #33302b;
+            flex: 1 1 280px; background: #1f1d1a; border-radius: 32px;
+            padding: 0.8rem; border: 1px solid #33302b;
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8);
         }
         .hero-image img {
-            width: 100%;
-            border-radius: 24px;
-            display: block;
-            background: #2c2823;
-            aspect-ratio: 4/3;
-            object-fit: cover;
+            width: 100%; border-radius: 24px; display: block;
+            background: #2c2823; aspect-ratio: 4/3; object-fit: cover;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.75rem;
+            font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.75rem;
         }
-        .section-title i {
-            color: #c9a86c;
-            margin-right: 12px;
-        }
+        .section-title i { color: #c9a86c; margin-right: 12px; }
+
         .insta-handle {
-            display: inline-block;
-            background: #1e1c19;
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #d4c9ba;
-            border: 1px solid #3a3630;
-            margin-bottom: 2.2rem;
+            display: inline-block; background: #1e1c19; padding: 0.5rem 1.8rem;
+            border-radius: 60px; font-size: 1.1rem; font-weight: 500;
+            color: #d4c9ba; border: 1px solid #3a3630; margin-bottom: 2.2rem;
         }
-        .insta-handle i {
-            color: #c9a86c;
-            margin-right: 10px;
-        }
+        .insta-handle i { color: #c9a86c; margin-right: 10px; }
         .insta-handle a {
-            color: #e0d6c6;
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px dashed #b99b6b;
-            transition: 0.2s;
+            color: #e0d6c6; text-decoration: none; font-weight: 600;
+            border-bottom: 1px dashed #b99b6b; transition: 0.2s;
         }
-        .insta-handle a:hover {
-            color: #f5edd9;
-            border-bottom-color: #e0c68a;
-        }
+        .insta-handle a:hover { color: #f5edd9; border-bottom-color: #e0c68a; }
+
         .insta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
             gap: 1.5rem;
         }
         .insta-card {
-            background: #181715;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: 0.25s;
-            border: 1px solid #2b2824;
+            background: #181715; border-radius: 24px; overflow: hidden;
+            transition: 0.25s; border: 1px solid #2b2824;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            text-decoration: none !important;
-            color: inherit !important;
-            display: block;
+            text-decoration: none !important; color: inherit !important; display: block;
         }
         .insta-card:hover {
-            transform: translateY(-6px);
-            border-color: #b99b6b;
+            transform: translateY(-6px); border-color: #b99b6b;
             box-shadow: 0 16px 36px rgba(0,0,0,0.8);
         }
-        .insta-card .card-body {
-            padding: 1rem 1rem 1.2rem;
-        }
+        .insta-card .card-body { padding: 1rem 1rem 1.2rem; }
         .insta-card .card-body .caption {
-            font-size: 0.9rem;
-            color: #bcb2a2;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem; color: #bcb2a2;
+            display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0.5rem;
         }
         .insta-card .card-body .meta {
-            display: flex;
-            justify-content: flex-start;
-            color: #7f776b;
-            font-size: 0.8rem;
+            display: flex; justify-content: flex-start; color: #7f776b; font-size: 0.8rem;
         }
-        .insta-card .card-body .meta i {
-            margin-right: 6px;
-        }
+        .insta-card .card-body .meta i { margin-right: 6px; }
+
         .reel-thumb {
-            position: relative;
-            aspect-ratio: 1/1;
-            background: #1f1d1a;
-            border-radius: 24px 24px 0 0;
-            overflow: hidden;
-            border-bottom: 2px solid #2b2824;
+            position: relative; aspect-ratio: 1/1; background: #1f1d1a;
+            border-radius: 24px 24px 0 0; overflow: hidden; border-bottom: 2px solid #2b2824;
         }
-        .reel-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        .reel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .reel-thumb .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 50%;
-            padding: 0.8rem 1.0rem;
-            color: #fff;
-            font-size: 1.8rem;
-            border: 2px solid rgba(255, 255, 255, 0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7); border-radius: 50%; padding: 0.8rem 1.0rem;
+            color: #fff; font-size: 1.8rem; border: 2px solid rgba(255, 255, 255, 0.85);
+            display: flex; align-items: center; justify-content: center; transition: 0.2s;
         }
         .insta-card:hover .play-overlay {
-            background: rgba(201, 168, 108, 0.85);
-            border-color: #fff;
+            background: rgba(201, 168, 108, 0.85); border-color: #fff;
             transform: translate(-50%, -50%) scale(1.05);
         }
-        .reel-thumb .play-overlay i {
-            color: #fff;
-        }
+        .reel-thumb .play-overlay i { color: #fff; }
+
+        /* Placeholder tile fallback */
         .reel-thumb .fallback-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #2a251f 0%, #1a1713 100%);
         }
         .reel-thumb .fallback-icon i {
-            font-size: 4rem;
-            color: #c9a86c;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
+            font-size: 3rem; color: #c9a86c; opacity: 0.9; margin-bottom: 0.6rem;
         }
         .reel-thumb .fallback-icon span {
-            color: #7f776b;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
+            color: #7f776b; font-size: 0.72rem; letter-spacing: 0.5px; text-transform: uppercase;
         }
 
-        .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            margin-top: 1.5rem;
-        }
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 1.5rem; }
         .contact-info {
-            flex: 1 1 260px;
-            background: #141310;
-            padding: 2.2rem 2rem;
-            border-radius: 32px;
-            border: 1px solid #2b2722;
+            flex: 1 1 260px; background: #141310; padding: 2.2rem 2rem;
+            border-radius: 32px; border: 1px solid #2b2722;
         }
-        .contact-info h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-        }
+        .contact-info h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 1.2rem; }
         .contact-info .detail {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 1.4rem 0;
-            color: #cbc0b0;
+            display: flex; align-items: center; gap: 1rem; margin: 1.4rem 0; color: #cbc0b0;
         }
-        .contact-info .detail i {
-            width: 2rem;
-            font-size: 1.3rem;
-            color: #c9a86c;
-        }
-        .contact-info .detail span {
-            font-weight: 400;
-        }
-        .contact-info .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2.2rem;
-        }
+        .contact-info .detail i { width: 2rem; font-size: 1.3rem; color: #c9a86c; }
+        .contact-info .detail span { font-weight: 400; }
+        .contact-info .detail a { color: #e0d6c6; text-decoration: none; border-bottom: 1px dashed #b99b6b; }
+        .contact-info .detail a:hover { color: #f5edd9; }
+        .contact-info .social-links { display: flex; gap: 1.5rem; margin-top: 2.2rem; }
         .contact-info .social-links a {
-            color: #b6aa98;
-            font-size: 1.6rem;
-            transition: 0.2s;
+            color: #b6aa98; font-size: 1.6rem; transition: 0.2s;
         }
-        .contact-info .social-links a:hover {
-            color: #dbb87a;
-            transform: scale(1.1);
-        }
-        .contact-form-placeholder {
-            flex: 2 1 300px;
-            background: #141310;
-            padding: 2.2rem 2rem;
-            border-radius: 32px;
-            border: 1px solid #2b2722;
-        }
-        .contact-form-placeholder h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .contact-form-placeholder p {
-            color: #a09889;
-            margin-bottom: 2rem;
-        }
-        .input-group {
-            background: #1f1c18;
-            border-radius: 60px;
-            padding: 0.8rem 1.5rem;
-            display: flex;
-            align-items: center;
-            border: 1px solid #35302a;
-            margin-bottom: 1.2rem;
-        }
-        .input-group i {
-            color: #a0927e;
-            margin-right: 12px;
-        }
-        .input-group input, .input-group textarea {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #f0ece4;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            width: 100%;
-        }
-        .input-group textarea {
-            min-height: 80px;
-            resize: vertical;
-            padding: 0.4rem 0;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #c9a86c;
-            color: #c9a86c;
-            padding: 0.8rem 2.8rem;
-            border-radius: 60px;
-            font-weight: 600;
-            transition: 0.2s;
-            cursor: default;
-        }
-        .btn-outline:hover {
-            background: #c9a86c;
-            color: #0b0b0b;
-        }
+        .contact-info .social-links a:hover { color: #dbb87a; transform: scale(1.1); }
 
-        .payment-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 1.5rem;
+        .contact-form-placeholder {
+            flex: 2 1 300px; background: #141310; padding: 2.2rem 2rem;
+            border-radius: 32px; border: 1px solid #2b2722;
         }
+        .contact-form-placeholder h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .contact-form-placeholder p { color: #a09889; margin-bottom: 2rem; }
+        .input-group {
+            background: #1f1c18; border-radius: 60px; padding: 0.8rem 1.5rem;
+            display: flex; align-items: center; border: 1px solid #35302a; margin-bottom: 1.2rem;
+        }
+        .input-group i { color: #a0927e; margin-right: 12px; }
+        .input-group input, .input-group textarea {
+            background: transparent; border: none; outline: none; color: #f0ece4;
+            font-family: 'Inter', sans-serif; font-size: 0.95rem; width: 100%;
+        }
+        .input-group textarea { min-height: 80px; resize: vertical; padding: 0.4rem 0; }
+        .btn-outline {
+            background: transparent; border: 1.5px solid #c9a86c; color: #c9a86c;
+            padding: 0.8rem 2.8rem; border-radius: 60px; font-weight: 600;
+            transition: 0.2s; cursor: default;
+        }
+        .btn-outline:hover { background: #c9a86c; color: #0b0b0b; }
+
+        .payment-grid { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; }
         .payment-card {
-            background: #141310;
-            padding: 2.5rem 2rem;
-            border-radius: 32px;
-            border: 1px solid #2b2722;
-            flex: 1 1 220px;
-            text-align: center;
-            transition: 0.2s;
+            background: #141310; padding: 2.5rem 2rem; border-radius: 32px;
+            border: 1px solid #2b2722; flex: 1 1 220px; text-align: center; transition: 0.2s;
         }
-        .payment-card:hover {
-            border-color: #b99b6b;
-            transform: translateY(-4px);
-        }
-        .payment-card .icon-large {
-            font-size: 2.8rem;
-            color: #c9a86c;
-            margin-bottom: 1rem;
-        }
-        .payment-card h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .payment-card p {
-            color: #b0a89b;
-            font-size: 0.95rem;
-        }
+        .payment-card:hover { border-color: #b99b6b; transform: translateY(-4px); }
+        .payment-card .icon-large { font-size: 2.8rem; color: #c9a86c; margin-bottom: 1rem; }
+        .payment-card h4 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .payment-card p { color: #b0a89b; font-size: 0.95rem; }
         .payment-card .highlight {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f0ece4;
-            letter-spacing: -0.5px;
+            font-size: 2rem; font-weight: 700; color: #f0ece4; letter-spacing: -0.5px;
         }
         .payment-note {
-            background: #1e1c19;
-            padding: 1.5rem 2rem;
-            border-radius: 60px;
-            border: 1px solid #3a3630;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
+            background: #1e1c19; padding: 1.5rem 2rem; border-radius: 60px;
+            border: 1px solid #3a3630; display: inline-flex; align-items: center;
+            gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap;
         }
-        .payment-note i {
-            color: #c9a86c;
-            font-size: 1.3rem;
-        }
+        .payment-note i { color: #c9a86c; font-size: 1.3rem; }
 
         .footer {
-            border-top: 1px solid #25221e;
-            padding: 2rem 0;
-            margin-top: 2rem;
-            text-align: center;
-            color: #6a635a;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
+            border-top: 1px solid #25221e; padding: 2rem 0; margin-top: 2rem;
+            text-align: center; color: #6a635a; font-size: 0.9rem; letter-spacing: 0.3px;
         }
-        .footer i {
-            color: #b99b6b;
-            margin: 0 4px;
-        }
-        .footer a {
-            color: #b99b6b;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
+        .footer i { color: #b99b6b; margin: 0 4px; }
+        .footer a { color: #b99b6b; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .attribution { display: block; margin-top: 0.6rem; font-size: 0.82rem; color: #5a544c; }
 
         .info-badge {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #28231e;
+            display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 3rem;
+            padding-top: 1.5rem; border-top: 1px solid #28231e;
         }
         .info-badge div {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: #bcb2a2;
-            font-weight: 500;
+            display: flex; align-items: center; gap: 0.6rem; color: #bcb2a2; font-weight: 500;
         }
-        .info-badge i {
-            color: #c9a86c;
-            font-size: 1.1rem;
-            width: 1.4rem;
-        }
+        .info-badge i { color: #c9a86c; font-size: 1.1rem; width: 1.4rem; }
 
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 1rem; align-items: flex-start; }
@@ -498,13 +260,20 @@
     </style>
 </head>
 <body>
+
+    <!-- Concept notice -->
+    <div class="concept-banner">
+        <i class="fas fa-info-circle"></i>
+        Concept project — fictional barber brand demo built by <a href="mailto:jrkdesigns@gmail.com">J. Khor</a>. Not a real business.
+    </div>
+
     <div class="container">
 
         <nav class="navbar">
-            <div class="logo"><i class="fas fa-cut"></i> Drelski</div>
+            <div class="logo"><i class="fas fa-cut"></i> JRK</div>
             <div class="nav-links">
                 <a href="#" class="active" data-page="home">Home</a>
-                <a href="#" data-page="instagram">Instagram</a>
+                <a href="#" data-page="instagram">Media</a>
                 <a href="#" data-page="payment">Payment</a>
                 <a href="#" data-page="contact">Contact</a>
             </div>
@@ -515,8 +284,8 @@
             <div class="hero">
                 <div class="hero-content">
                     <h1>Clean cuts.<br><span>Your place or mine.</span></h1>
-                    <p>Clean, quality cuts — solo barber serving Omaha. I come to your home or host you at my private studio. Book your session today.</p>
-                    <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book appointment</a>
+                    <p>Clean, quality cuts — solo barber serving Omaha. I come to your home or host you at my private studio. Book a cut today.</p>
+                    <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book a cut</a>
                 </div>
                 <div class="hero-image">
                     <img id="heroImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E" alt="Barber chair">
@@ -530,25 +299,24 @@
             </div>
         </div>
 
-        <!-- PAGE 2: INSTAGRAM FEED (ALL REELS WITH YOUR IMGUR IMAGES) -->
+        <!-- PAGE 2: MEDIA GRID -->
         <div id="instagram" class="page">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-                <h2 class="section-title"><i class="fab fa-instagram"></i> Portfolio</h2>
+                <h2 class="section-title"><i class="fas fa-photo-film"></i> Media</h2>
                 <div class="insta-handle">
-                    <i class="fas fa-at"></i> 
-                    <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer">
-                        @drelskicutz <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 4px;"></i>
-                    </a>
+                    <i class="fas fa-at"></i>
+                    <a href="#" onclick="return false;">@jrk.cuts</a>
+                    <span style="font-size:0.7rem;color:#7f776b;margin-left:6px;">(demo)</span>
                 </div>
             </div>
-            <p style="color: #a09889; margin-bottom: 2rem;">Recent work from the chair. Click any reel to watch on Instagram.</p>
+            <p style="color: #a09889; margin-bottom: 2rem;">Sample media grid — demo reel and photo cards. Layout and interaction sample only; content is placeholder.</p>
 
             <div class="insta-grid" id="instaGrid">
                 <!-- Reels injected by JavaScript -->
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
-                    <i class="fab fa-instagram"></i> Follow @drelskicutz
+                <a href="#" onclick="return false;" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
+                    <i class="fab fa-instagram"></i> Demo handle — no live account
                 </a>
             </div>
         </div>
@@ -556,7 +324,7 @@
         <!-- PAGE 3: PAYMENT -->
         <div id="payment" class="page">
             <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment & Pricing</h2>
-            <p style="color: #a09889; margin-bottom: 0.5rem;">Simple, transparent pricing. House calls available.</p>
+            <p style="color: #a09889; margin-bottom: 0.5rem;">$20 a cut. House calls available.</p>
             <div class="payment-grid">
                 <div class="payment-card">
                     <div class="icon-large"><i class="fas fa-dollar-sign"></i></div>
@@ -571,12 +339,12 @@
                 <div class="payment-card">
                     <div class="icon-large"><i class="fas fa-car"></i></div>
                     <h4>House Calls</h4>
-                    <p>I come to you — available across Omaha 🚙</p>
+                    <p>I come to you — available across Omaha</p>
                 </div>
             </div>
             <div class="payment-note">
-                <i class="fas fa-check-circle"></i> 
-                <span>Book with confidence — pay at time of service. Cash, Apple Pay, or Cash App.</span>
+                <i class="fas fa-check-circle"></i>
+                <span>Pay when you get the cut — cash, Apple Pay, or Cash App.</span>
             </div>
         </div>
 
@@ -586,126 +354,79 @@
             <p style="color: #a09889; margin-bottom: 0.5rem;">Reach out to book your appointment. Mobile service available across Omaha.</p>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>Drelski Cuts</h3>
-                    <div class="detail"><i class="fas fa-map-pin"></i> <span>📍 Omaha, Nebraska</span></div>
-                    <div class="detail"><i class="fas fa-phone-alt"></i> <span>📞 +1 (555) 000-0000</span></div>
-                    <div class="detail"><i class="fas fa-envelope"></i> <span>✉️ info@drelskicutz.com</span></div>
+                    <h3>JRK Cuts</h3>
+                    <div class="detail"><i class="fas fa-map-pin"></i> <span>Omaha, Nebraska</span></div>
+                    <div class="detail"><i class="fas fa-phone-alt"></i> <span>+1 (402) 555-0198 <span style="font-size:0.75rem;color:#7f776b;">(demo)</span></span></div>
+                    <div class="detail"><i class="fas fa-envelope"></i> <span><a href="mailto:jrkdesigns@gmail.com">jrkdesigns@gmail.com</a></span></div>
                     <div class="social-links">
-                        <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" onclick="return false;" aria-label="Instagram (demo)"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="return false;" aria-label="TikTok (demo)"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" onclick="return false;" aria-label="YouTube (demo)"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="contact-form-placeholder">
-                    <h3>Request a session</h3>
-                    <p>Fill out the details and I'll get back to you shortly.</p>
+                    <h3>Book a cut</h3>
+                    <p>Demo form — not wired to a server. To get in touch for real, email <a href="mailto:jrkdesigns@gmail.com" style="color:#d4b483;">jrkdesigns@gmail.com</a>.</p>
                     <div class="input-group"><i class="fas fa-user"></i><input type="text" placeholder="Name" value=""></div>
                     <div class="input-group"><i class="fas fa-envelope"></i><input type="email" placeholder="Email" value=""></div>
                     <div class="input-group"><i class="fas fa-comment"></i><textarea placeholder="Preferred date, location, and service..."></textarea></div>
-                    <button class="btn-outline" style="cursor: default;">Send inquiry (demo)</button>
-                    <p style="font-size: 0.8rem; margin-top: 1.2rem; color:#6a635a;"><i class="fas fa-info-circle"></i> Contact form is a placeholder — reach out directly via Instagram or phone.</p>
+                    <button class="btn-outline" style="cursor: default;" onclick="return false;">Send inquiry (demo)</button>
+                    <p style="font-size: 0.8rem; margin-top: 1.2rem; color:#6a635a;"><i class="fas fa-info-circle"></i> Demo form — no data is sent. Concept project by J. Khor.</p>
                 </div>
             </div>
         </div>
 
         <footer class="footer">
-            <i class="fas fa-cut"></i> Drelski Cuts · Solo Barber · Omaha, NE · <i class="fab fa-instagram"></i> <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer">@drelskicutz</a>
+            <i class="fas fa-cut"></i> JRK Cuts · Solo Barber · Omaha, NE · <i class="fas fa-at"></i> @jrk.cuts (demo)
+            <span class="attribution">Concept project — designed &amp; built by <a href="mailto:jrkdesigns@gmail.com">J. Khor</a>. Fictional barber brand, not a real business.</span>
         </footer>
     </div>
 
     <script>
         // ================================================================
-        // 📸 HERO IMAGE (optional – replace with your own URL)
+        // HERO IMAGE (SVG placeholder — swap for a real photo later)
         // ================================================================
         const heroImageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E";
 
         // ================================================================
-        // 🎬 INSTAGRAM REELS – all 9 with your Imgur thumbnails
+        // DEMO MEDIA CARDS
+        // Set image to '' to render a styled placeholder tile instead.
         // ================================================================
         const reels = [
-            { 
-                url: 'https://www.instagram.com/reel/Db-ASNDuK_Q/', 
-                caption: 'Yk I keep it clean 🧼 #haircut #viral #omaha',
-                image: 'https://i.imgur.com/qu13VJV.png'  // Reel 1
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DbRrggEtjsp/', 
-                caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper',
-                image: 'https://i.imgur.com/TnxDNjY.png'  // Reel 2
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DbKhDwuOVf9/', 
-                caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade',
-                image: 'https://i.imgur.com/l5AmKTK.png'  // Reel 3
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DazKjtMN6BJ/', 
-                caption: 'Spice ball #haircut #viral #omaha',
-                image: 'https://i.imgur.com/KffZXOi.png'  // Reel 4
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DaE3a-ztKdA/', 
-                caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha',
-                image: 'https://i.imgur.com/g6j8KFI.png'  // Reel 5
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DZMius-Mb4h/', 
-                caption: 'Bro is not white 😔 #haircut #viral #midtaper',
-                image: 'https://i.imgur.com/UX6acsn.png'  // Reel 6
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DWH3uJgOalp/', 
-                caption: 'Dark hook >> #haircut #viral #omaha #midtaper',
-                image: 'https://i.imgur.com/xgUrgb4.png'  // Reel 7
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DSURRyzDhYA/', 
-                caption: 'Fresh cut alert 🔥 #haircut #viral',
-                image: 'https://i.imgur.com/tfgdV6H.png'  // Reel 8
-            },
-            { 
-                url: 'https://www.instagram.com/reel/DQQWboBDQfM/', 
-                caption: 'Busy 🤕 #haircut #viral #omaha',
-                image: 'https://i.imgur.com/hHqrdMm.png'  // Reel 9
-            }
+            { url: '#', caption: 'Mid taper + beard line-up', image: 'https://i.imgur.com/qu13VJV.png' },
+            { url: '#', caption: 'Burst fade, clean finish', image: 'https://i.imgur.com/TnxDNjY.png' },
+            { url: '#', caption: 'Five cuts, one session', image: 'https://i.imgur.com/l5AmKTK.png' },
+            { url: '#', caption: 'Texture on top, tight sides', image: 'https://i.imgur.com/KffZXOi.png' },
+            { url: '#', caption: 'High taper, 10 guard', image: 'https://i.imgur.com/g6j8KFI.png' },
+            { url: '#', caption: 'Mid taper, sharp details', image: 'https://i.imgur.com/UX6acsn.png' },
+            { url: '#', caption: 'Dark hook fade', image: 'https://i.imgur.com/xgUrgb4.png' },
+            { url: '#', caption: 'Fresh cut', image: 'https://i.imgur.com/tfgdV6H.png' },
+            { url: '#', caption: 'Busy day in the chair', image: 'https://i.imgur.com/hHqrdMm.png' }
         ];
 
-        // ================================================================
-        // 🚀 RENDER EVERYTHING
-        // ================================================================
-
-        // Apply hero image
         document.addEventListener('DOMContentLoaded', function() {
             const heroImg = document.getElementById('heroImage');
             if (heroImg) heroImg.src = heroImageUrl;
 
-            // Render Instagram Reels
             const grid = document.getElementById('instaGrid');
             if (grid) {
                 reels.forEach(reel => {
                     const card = document.createElement('a');
                     card.className = 'insta-card';
                     card.href = reel.url;
-                    card.target = '_blank';
-                    card.rel = 'noopener noreferrer';
+                    card.addEventListener('click', e => e.preventDefault());
 
-                    // Thumbnail with play button overlay
-                    const thumbHTML = `
-                        <div class="reel-thumb">
-                            <img src="${reel.image}" alt="Reel thumbnail" loading="lazy">
-                            <div class="play-overlay">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    `;
+                    const thumbInner = reel.image
+                        ? `<img src="${reel.image}" alt="Demo media thumbnail" loading="lazy">
+                           <div class="play-overlay"><i class="fas fa-play"></i></div>`
+                        : `<div class="fallback-icon"><i class="fas fa-photo-film"></i><span>Media sample</span></div>
+                           <div class="play-overlay"><i class="fas fa-play"></i></div>`;
 
                     card.innerHTML = `
-                        ${thumbHTML}
+                        <div class="reel-thumb">${thumbInner}</div>
                         <div class="card-body">
                             <div class="caption">${reel.caption}</div>
-                            <div class="meta">
-                                <span><i class="fas fa-external-link-alt"></i> Open in Instagram</span>
-                            </div>
+                            <div class="meta"><span><i class="fas fa-circle-info"></i> Demo media sample</span></div>
                         </div>
                     `;
                     grid.appendChild(card);
@@ -714,7 +435,7 @@
         });
 
         // ================================================================
-        // 📄 PAGE SWITCHING
+        // PAGE SWITCHING
         // ================================================================
         const pages = document.querySelectorAll('.page');
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -726,9 +447,7 @@
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.dataset.page === pageId) {
-                    link.classList.add('active');
-                }
+                if (link.dataset.page === pageId) link.classList.add('active');
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -736,8 +455,7 @@
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const page = link.dataset.page;
-                if (page) switchPage(page);
+                if (link.dataset.page) switchPage(link.dataset.page);
             });
         });
 
