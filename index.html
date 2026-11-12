@@ -25,7 +25,6 @@
 
         .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
 
-        /* Concept banner */
         .concept-banner {
             background: #1e1c19;
             border-bottom: 1px solid #3a3630;
@@ -73,7 +72,7 @@
         .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; margin-top: 0.5rem; }
         .hero-content { flex: 1 1 300px; }
         .hero-content h1 {
-            font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px;
+            font-size: 3.2rem; font-weight: 800; line-height: 1.15; letter-spacing: -1px;
         }
         .hero-content h1 span { color: #c9a86c; }
         .hero-content p {
@@ -149,8 +148,8 @@
         .reel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .reel-thumb .play-overlay {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7); border-radius: 50%; padding: 0.8rem 1.0rem;
-            color: #fff; font-size: 1.8rem; border: 2px solid rgba(255, 255, 255, 0.85);
+            background: rgba(0, 0, 0, 0.55); border-radius: 50%; width: 3rem; height: 3rem;
+            color: #fff; font-size: 1.3rem; border: 2px solid rgba(255, 255, 255, 0.85);
             display: flex; align-items: center; justify-content: center; transition: 0.2s;
         }
         .insta-card:hover .play-overlay {
@@ -159,17 +158,17 @@
         }
         .reel-thumb .play-overlay i { color: #fff; }
 
-        /* Placeholder tile fallback */
+        /* Blank placeholder tile */
         .reel-thumb .fallback-icon {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             width: 100%; height: 100%;
-            background: linear-gradient(135deg, #2a251f 0%, #1a1713 100%);
+            background: linear-gradient(135deg, #2a251f 0%, #171411 100%);
         }
         .reel-thumb .fallback-icon i {
-            font-size: 3rem; color: #c9a86c; opacity: 0.9; margin-bottom: 0.6rem;
+            font-size: 2.6rem; color: #c9a86c; opacity: 0.85; margin-bottom: 0.6rem;
         }
         .reel-thumb .fallback-icon span {
-            color: #7f776b; font-size: 0.72rem; letter-spacing: 0.5px; text-transform: uppercase;
+            color: #7f776b; font-size: 0.7rem; letter-spacing: 0.6px; text-transform: uppercase;
         }
 
         .contact-wrapper { display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 1.5rem; }
@@ -186,9 +185,7 @@
         .contact-info .detail a { color: #e0d6c6; text-decoration: none; border-bottom: 1px dashed #b99b6b; }
         .contact-info .detail a:hover { color: #f5edd9; }
         .contact-info .social-links { display: flex; gap: 1.5rem; margin-top: 2.2rem; }
-        .contact-info .social-links a {
-            color: #b6aa98; font-size: 1.6rem; transition: 0.2s;
-        }
+        .contact-info .social-links a { color: #b6aa98; font-size: 1.6rem; transition: 0.2s; }
         .contact-info .social-links a:hover { color: #dbb87a; transform: scale(1.1); }
 
         .contact-form-placeholder {
@@ -261,7 +258,6 @@
 </head>
 <body>
 
-    <!-- Concept notice -->
     <div class="concept-banner">
         <i class="fas fa-info-circle"></i>
         Concept project — fictional barber brand demo built by <a href="mailto:jrkdesigns@gmail.com">J. Khor</a>. Not a real business.
@@ -283,8 +279,8 @@
         <div id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Clean cuts.<br><span>Your place or mine.</span></h1>
-                    <p>Clean, quality cuts — solo barber serving Omaha. I come to your home or host you at my private studio. Book a cut today.</p>
+                    <h1>Good cuts.<br><span>No appointment drama.</span></h1>
+                    <p>I'm a one-chair barber out of Omaha. Pull up to the studio or I'll come to you — either way you leave looking right. Cash, Apple Pay, or Cash App, and you're in and out.</p>
                     <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book a cut</a>
                 </div>
                 <div class="hero-image">
@@ -292,10 +288,10 @@
                 </div>
             </div>
             <div class="info-badge">
-                <div><i class="fas fa-user"></i> Solo barber</div>
-                <div><i class="fas fa-home"></i> In-home or studio service</div>
-                <div><i class="fas fa-cut"></i> Precision fades &amp; trims</div>
-                <div><i class="fas fa-map-pin"></i> Omaha, Nebraska</div>
+                <div><i class="fas fa-chair"></i> One chair, one barber</div>
+                <div><i class="fas fa-car"></i> Studio or house call</div>
+                <div><i class="fas fa-cut"></i> Fades, tapers, line-ups</div>
+                <div><i class="fas fa-map-pin"></i> Omaha, NE</div>
             </div>
         </div>
 
@@ -311,9 +307,7 @@
             </div>
             <p style="color: #a09889; margin-bottom: 2rem;">Sample media grid — demo reel and photo cards. Layout and interaction sample only; content is placeholder.</p>
 
-            <div class="insta-grid" id="instaGrid">
-                <!-- Reels injected by JavaScript -->
-            </div>
+            <div class="insta-grid" id="instaGrid"></div>
             <div style="text-align: center; margin-top: 2.5rem;">
                 <a href="#" onclick="return false;" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
                     <i class="fab fa-instagram"></i> Demo handle — no live account
@@ -383,25 +377,19 @@
     </div>
 
     <script>
-        // ================================================================
-        // HERO IMAGE (SVG placeholder — swap for a real photo later)
-        // ================================================================
         const heroImageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E";
 
-        // ================================================================
-        // DEMO MEDIA CARDS
-        // Set image to '' to render a styled placeholder tile instead.
-        // ================================================================
+        // All media tiles are blank placeholders — set image to a URL later to swap in real media.
         const reels = [
-            { url: '#', caption: 'Mid taper + beard line-up', image: 'https://i.imgur.com/qu13VJV.png' },
-            { url: '#', caption: 'Burst fade, clean finish', image: 'https://i.imgur.com/TnxDNjY.png' },
-            { url: '#', caption: 'Five cuts, one session', image: 'https://i.imgur.com/l5AmKTK.png' },
-            { url: '#', caption: 'Texture on top, tight sides', image: 'https://i.imgur.com/KffZXOi.png' },
-            { url: '#', caption: 'High taper, 10 guard', image: 'https://i.imgur.com/g6j8KFI.png' },
-            { url: '#', caption: 'Mid taper, sharp details', image: 'https://i.imgur.com/UX6acsn.png' },
-            { url: '#', caption: 'Dark hook fade', image: 'https://i.imgur.com/xgUrgb4.png' },
-            { url: '#', caption: 'Fresh cut', image: 'https://i.imgur.com/tfgdV6H.png' },
-            { url: '#', caption: 'Busy day in the chair', image: 'https://i.imgur.com/hHqrdMm.png' }
+            { caption: 'Fade & line-up' },
+            { caption: 'Mid taper' },
+            { caption: 'Burst fade' },
+            { caption: 'Beard trim' },
+            { caption: 'High taper' },
+            { caption: 'Kids cut' },
+            { caption: 'Line-up only' },
+            { caption: 'House call' },
+            { caption: 'Before / after' }
         ];
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -413,13 +401,13 @@
                 reels.forEach(reel => {
                     const card = document.createElement('a');
                     card.className = 'insta-card';
-                    card.href = reel.url;
+                    card.href = '#';
                     card.addEventListener('click', e => e.preventDefault());
 
                     const thumbInner = reel.image
                         ? `<img src="${reel.image}" alt="Demo media thumbnail" loading="lazy">
                            <div class="play-overlay"><i class="fas fa-play"></i></div>`
-                        : `<div class="fallback-icon"><i class="fas fa-photo-film"></i><span>Media sample</span></div>
+                        : `<div class="fallback-icon"><i class="fas fa-image"></i><span>Media sample</span></div>
                            <div class="play-overlay"><i class="fas fa-play"></i></div>`;
 
                     card.innerHTML = `
@@ -434,9 +422,6 @@
             }
         });
 
-        // ================================================================
-        // PAGE SWITCHING
-        // ================================================================
         const pages = document.querySelectorAll('.page');
         const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -444,7 +429,6 @@
             pages.forEach(p => p.classList.remove('active'));
             const target = document.getElementById(pageId);
             if (target) target.classList.add('active');
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.dataset.page === pageId) link.classList.add('active');
